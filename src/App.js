@@ -12,6 +12,7 @@ export default function App() {
   const [show, setShow] = useState(null);
   const [seasons, setSeasons] = useState([]);
   const [selectedSeason, setSelectedSeason] = useState("");
+  const [error, setError] = useState("");
   const episodes = seasons[selectedSeason] || [];
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export default function App() {
         })
         .catch(err => {
           console.log(err)
+          setError(err.message)
         })
   }, []);
 
@@ -45,7 +47,7 @@ export default function App() {
         value={selectedSeason || "Select a season"}
         placeholder="Select an option"
       />
-      <Episodes episodes={episodes} />
+      <Episodes episodes={episodes} error={error} />
     </div>
   );
 }
