@@ -33,9 +33,9 @@ test("app fetches data", async () => {
   // await for the data to be fetched
   await waitFor(() =>
     // query for the missions array / assert that it is rendered
-    expect(queryAllByTestId(/episode-list/i)).toHaveLength(3)
-  );
+    expect(queryAllByTestId(/episode-list/i)).toHaveLength32)
+  
 
   // can also do other assertions out here. Await means this code won't run until the promise resolves
-  expect(mockFetchShow).toHaveBeenCalledTimes(1);
-});
+    expect(mockFetchShow).toHaveBeenCalledTimes(1);
+})
